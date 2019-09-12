@@ -17,7 +17,7 @@ SPM_ENCODE=$SCRIPTS/spm_encode.py
 BPESIZE=40000
 
 DATA=$ROOT/bucc2018
-MODEL=UNv1.0/sentencepiece.bpe.model
+MODEL=UNv1/sentencepiece.bpe.model
 
 TRAIN_MINLEN=1  # remove sentences with <1 BPE token
 TRAIN_MAXLEN=250  # remove sentences with >250 BPE tokens
@@ -29,12 +29,12 @@ import sys
 for line in sys.stdin:
     print(" ".join(jieba.cut(line.strip(), cut_all=True)))' > $DATA/zh-en/zh-en.test.tok.zh
 
-cat $DATA/zh-en/zh-en.test.en | preprocess/moses/tokenizer/tokenizer.perl -l en | awk '{ print tolower($0) }' > $DATA/zh-en/zh-en.test.tok.en 
+cat $DATA/zh-en/zh-en.test.en | $ROOT/../../preprocess/moses/tokenizer/tokenizer.perl -l en | awk '{ print tolower($0) }' > $DATA/zh-en/zh-en.test.tok.en 
 
 #Tokenizing and lowercasing French and Russian training and test sets
 for LANG in "fr" "ru"; do
-	cut -f 2 $DATA/$LANG-en/$LANG-en.test.en | preprocess/moses/tokenizer/tokenizer.perl -l en | awk '{ print tolower($0) }' > $DATA/$LANG-en/$LANG-en.test.tok.en &
-	cut -f 2 $DATA/$LANG-en/$LANG-en.test.$LANG | preprocess/moses/tokenizer/tokenizer.perl -l $LANG | awk '{ print tolower($0) }' > $DATA/$LANG-en/$LANG-en.test.tok.$LANG &
+	cut -f 2 $DATA/$LANG-en/$LANG-en.test.en | $ROOT/../../preprocess/moses/tokenizer/tokenizer.perl -l en | awk '{ print tolower($0) }' > $DATA/$LANG-en/$LANG-en.test.tok.en &
+	cut -f 2 $DATA/$LANG-en/$LANG-en.test.$LANG | $ROOT/../../preprocess/moses/tokenizer/tokenizer.perl -l $LANG | awk '{ print tolower($0) }' > $DATA/$LANG-en/$LANG-en.test.tok.$LANG &
 done
 
 wait
