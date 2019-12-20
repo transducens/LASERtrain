@@ -27,9 +27,9 @@ Note that UN corpus does not cover one of the language pairs in BUCC 2018: Germa
 
 For BUCC 2018, download all the 4 training data packages and the 4 test data packages to the sub-directory `data`. Once downloaded, uncompress all the packages using the coommand: `tar xjf bucc2018-ru-en.test.tar.bz2` 
 
+## Acknowledgements
+Developed by Universitat d'Alacant as part of its contribution to the [GoURMET](https://gourmet-project.eu/) project, which  received funding from the European Union’s Horizon 2020 research and innovation programme under grant agreement No 825299.
+
 ## References
 - Mikel Artetxe and Holger Schwenk, [Massively Multilingual Sentence Embeddings for Zero-Shot Cross-Lingual Transfer and Beyond](https://arxiv.org/abs/1812.10464) arXiv, Dec 26 2018.
 - Mikel Artetxe and Holger Schwenk, [Margin-based Parallel Corpus Mining with Multilingual Sentence Embeddings](https://arxiv.org/abs/1811.01136), in Proceedings of the 57th Annual Meeting of the Association for Computational Linguistics, Florence, Italy, 2019.
-
-## Acknowledgements
-Developed by Universitat d'Alacant as part of its contribution to the [GoURMET](https://gourmet-project.eu/) project, which  received funding from the European Union’s Horizon 2020 research and innovation programme under grant agreement No 825299.
